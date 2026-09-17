@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+/* Default = dark */
+:root,
+html.dark {
+  --background: #0a0b0d;
+  --foreground: #ededed;
+  --surface: #0a0a0c;
+  --surface-elevated: #12141a;
+  --surface-card: #14161c;
+  --surface-soft: #161618;
+  --text: #ffffff;
+  --text-muted: #94a3b8;
+  --text-dim: #9ca3af;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(36, 51, 66, 0.4);
+  --header-bg: rgba(1, 13, 24, 0.72);
+  --header-bg-solid: rgba(1, 13, 24, 0.95);
+  --input-bg: #0b0d12;
+  --accent: #ff6b1a;
+  --glow: rgba(255, 107, 26, 0.12);
+}
+
+html.light {
+  --background: #f4f6f8;
+  --foreground: #0f172a;
+  --surface: #f4f6f8;
+  --surface-elevated: #ffffff;
+  --surface-card: #ffffff;
+  --surface-soft: #ffffff;
+  --text: #0f172a;
+  --text-muted: #64748b;
+  --text-dim: #64748b;
+  --border: rgba(15, 23, 42, 0.1);
+  --border-strong: rgba(15, 23, 42, 0.12);
+  --header-bg: rgba(255, 255, 255, 0.86);
+  --header-bg-solid: rgba(255, 255, 255, 0.96);
+  --input-bg: #f8fafc;
+  --accent: #ff6b1a;
+  --glow: rgba(255, 107, 26, 0.08);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* Keep logo readable on both themes */
+html.light .theme-logo-frame {
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.08);
+}
