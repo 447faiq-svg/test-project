@@ -1,21 +1,25 @@
+import BlogSection from "@/components/BlogSection";
+import CompanyRecords from "@/components/CompanyRecords";
+import ConsultForm from "@/components/ConsultForm";
+import EmrEhr from "@/components/EmrEhr";
 import Hero from "@/components/Hero";
-import HowItWorks from "@/components/HowItWorks";
-import PilotOffer from "@/components/PilotOffer";
-import Results from "@/components/Results";
+import Reviews from "@/components/Reviews";
 import Services from "@/components/Services";
 import Specialties from "@/components/Specialties";
-import Testimonials from "@/components/Testimonials";
+import TrustStats from "@/components/TrustStats";
 
 export default function Home() {
   return (
     <main className="flex flex-1 flex-col">
       <Hero />
-      <Results />
-      <HowItWorks />
+      <ConsultForm />
       <Services />
+      <TrustStats />
       <Specialties />
-      <Testimonials />
-      <PilotOffer />
+      <EmrEhr />
+      <CompanyRecords />
+      <Reviews />
+      <BlogSection />
     </main>
   );
 }

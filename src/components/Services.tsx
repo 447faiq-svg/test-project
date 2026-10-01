@@ -1,75 +1,48 @@
 const services = [
   {
-    title: "Medical Billing & Coding",
+    title: "AI Agents",
     description:
-      "Certified AAPC & AHIMA coders translate provider notes into clean CPT, ICD-10-CM, and HCPCS codes with 98%+ clean accuracy.",
-    iconBg: "bg-orange-500/15 text-orange-400",
-    icon: (
-      <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
-        <path d="M16 18 22 12 16 6M8 6 2 12l6 6" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    ),
+      "Intelligent workflows that accelerate prior authorizations, flag denial risk early, and keep your revenue cycle moving without constant manual oversight.",
+    comingSoon: true,
   },
   {
-    title: "End-to-End RCM",
+    title: "Medical Billing Services",
     description:
-      "Total operational ownership: patient registration, charge entry, claim submission, payment posting, and gentle patient collection follow-ups.",
-    iconBg: "bg-amber-700/20 text-amber-400",
-    icon: (
-      <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
-        <path d="M7 16 3 12l4-4M17 8l4 4-4 4M14 4l-4 16" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    ),
+      "End-to-end claim handling—from charge capture through payer follow-up—so your team spends less time chasing payments and more time caring for patients.",
+    href: "/services/medical-billing",
   },
   {
-    title: "Prior-Authorization Fast-Track",
+    title: "Laboratory Billing Services",
     description:
-      "Dedicated clinical liaisons accelerate insurance approvals and peer-to-peer discussions so surgical procedures are never delayed.",
-    iconBg: "bg-teal-500/15 text-teal-400",
-    icon: (
-      <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
-        <path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2m-6 9 2 2 4-4" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    ),
+      "Specialty lab billing built to capture specimen complexity, payer nuances, and compliance requirements while protecting test-level reimbursement.",
   },
   {
-    title: "Denial Recovery & Aged A/R",
+    title: "Medical Credentialing Services",
     description:
-      "Relentless audit and recovery teams targeting 60, 90, and 120+ day balances through comprehensive clinical appeal packages.",
-    iconBg: "bg-red-500/15 text-red-400",
-    icon: (
-      <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
-        <path d="M12 3 4 7v5c0 5 3.5 9.4 8 11 4.5-1.6 8-6 8-11V7l-8-4z" strokeLinejoin="round" />
-        <path d="m9 12 2 2 4-4" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    ),
+      "Provider enrollment and payer-panel setup handled with careful follow-through, so clinicians can practice without enrollment bottlenecks.",
   },
   {
-    title: "ASC Facility & Dual Billing",
+    title: "Medical Billing & Coding Services",
     description:
-      "Synchronized submission of professional physician services (CMS-1500) and surgery center facility overhead (UB-04) without unbundling penalties.",
-    iconBg: "bg-sky-500/15 text-sky-400",
-    icon: (
-      <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor" aria-hidden>
-        <path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z" />
-      </svg>
-    ),
+      "Surface lost revenue, coding gaps, and denial patterns across your current workflow—without disrupting day-to-day operations.",
+    href: "/services/medical-billing-coding",
   },
   {
-    title: "EHR Integration Matrix",
+    title: "MIPS Reporting",
     description:
-      "Seamless native synchronization with Epic, Cerner, eClinicalWorks, Athenahealth, NextGen, and Kareo. No messy data migration required.",
-    iconBg: "bg-emerald-500/15 text-emerald-400",
-    icon: (
-      <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
-        <circle cx="12" cy="12" r="2" />
-        <circle cx="5" cy="7" r="2" />
-        <circle cx="19" cy="7" r="2" />
-        <circle cx="5" cy="17" r="2" />
-        <circle cx="19" cy="17" r="2" />
-        <path d="M7 8.5 10 11M14 11l3-2.5M7 15.5 10 13M14 13l3 2.5" strokeLinecap="round" />
-      </svg>
-    ),
+      "Accurate MIPS support that helps eligible Medicare providers protect reimbursement and document quality performance with confidence.",
+  },
+  {
+    title: "Revenue Cycle Management",
+    description:
+      "Every stage of the revenue cycle managed with discipline—improving collections, shortening delays, and strengthening financial outcomes.",
+    href: "/services/revenue-cycle-management",
+  },
+  {
+    title: "Medical Billing Audit",
+    description:
+      "Targeted audits that expose revenue leakage, coding weaknesses, and denial trends—then convert findings into cleaner claims and stronger recovery.",
+    href: "/services/medical-billing-audit",
   },
 ];
 
@@ -80,46 +53,61 @@ export default function Services() {
       className="relative bg-[var(--surface)] px-4 py-16 sm:px-6 sm:py-20 lg:py-24"
     >
       <div className="mx-auto w-full max-w-[1200px]">
-        <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-          <div className="max-w-2xl">
-            <p className="text-xs font-semibold tracking-[0.14em] text-[#FF7A3A] uppercase">
-              MODULAR SERVICE SUITE
-            </p>
-            <h2 className="mt-4 text-3xl font-bold tracking-tight text-[var(--text)] sm:text-4xl md:text-[2.6rem] md:leading-[1.15]">
-              Complete Practice Infrastructure
-            </h2>
-            <p className="mt-4 max-w-xl text-[15px] leading-7 text-[var(--text-muted)] sm:text-base">
-              Adopt our full end-to-end revenue cycle or deploy modular
-              capabilities to power your internal administrative teams.
-            </p>
-          </div>
-
-          <a
-            href="#services"
-            className="inline-flex shrink-0 items-center gap-2 text-xs font-semibold tracking-[0.08em] text-[#FF7A3A] uppercase transition hover:text-[#FF9A55]"
-          >
-            EXPLORE ALL SERVICES
-            <span aria-hidden>→</span>
-          </a>
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="text-xs font-semibold tracking-[0.14em] text-[#FF7A3A] uppercase">
+            Modular Service Suite
+          </p>
+          <h2 className="mt-4 font-[family-name:var(--font-display)] text-3xl font-bold tracking-tight text-[var(--text)] sm:text-4xl md:text-[2.5rem] md:leading-[1.15]">
+            Your Partner in High-Performance Medical Billing
+          </h2>
+          <p className="mt-5 text-[15px] leading-7 text-[var(--text-muted)] sm:text-base sm:leading-8">
+            InterPulse Global removes the friction from{" "}
+            <strong className="font-semibold text-[var(--text)]">
+              medical billing services
+            </strong>{" "}
+            so clinicians can stay focused on care. We combine specialty-aware
+            coding, disciplined claim management, and clear reporting to protect
+            revenue and shorten the path from encounter to payment.
+          </p>
         </div>
 
-        <div className="mt-12 grid gap-4 sm:mt-14 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
+        <div className="mt-12 grid gap-4 sm:mt-14 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
           {services.map((service) => (
             <article
               key={service.title}
-              className="rounded-2xl border border-[var(--border)] bg-[var(--surface-elevated)] p-5 transition duration-300 hover:border-[var(--border)] hover:opacity-95 sm:p-6"
+              className="relative flex flex-col border border-[var(--border)] bg-[var(--surface-card)] p-5 transition duration-300 hover:border-[#FF6B1A]/35 sm:p-6"
             >
-              <div
-                className={`mb-5 inline-flex h-10 w-10 items-center justify-center rounded-xl ${service.iconBg}`}
-              >
-                {service.icon}
+              <div className="flex items-start justify-between gap-3">
+                <h3 className="font-[family-name:var(--font-display)] text-lg font-bold leading-snug text-[var(--text)] sm:text-[1.15rem]">
+                  {"href" in service && service.href ? (
+                    <a
+                      href={service.href}
+                      className="transition hover:text-[#FF6B1A]"
+                    >
+                      {service.title}
+                    </a>
+                  ) : (
+                    service.title
+                  )}
+                </h3>
+                {service.comingSoon && (
+                  <span className="shrink-0 bg-[#FF6B1A]/15 px-2 py-1 text-[10px] font-bold tracking-[0.06em] text-[#FF6B1A] uppercase">
+                    Coming Soon
+                  </span>
+                )}
               </div>
-              <h3 className="text-lg font-semibold text-[var(--text)]">
-                {service.title}
-              </h3>
-              <p className="mt-3 text-sm leading-6 text-[var(--text-muted)]">
+              <div className="mt-3 h-px w-full bg-[var(--border-strong)]" />
+              <p className="mt-4 flex-1 text-sm leading-6 text-[var(--text-muted)]">
                 {service.description}
               </p>
+              {"href" in service && service.href ? (
+                <a
+                  href={service.href}
+                  className="mt-6 inline-flex text-xs font-semibold tracking-[0.06em] text-[#FF6B1A] uppercase transition hover:text-[#E65200]"
+                >
+                  Learn More →
+                </a>
+              ) : null}
             </article>
           ))}
         </div>

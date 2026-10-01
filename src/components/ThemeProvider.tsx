@@ -6,7 +6,7 @@ import {
   useContext,
   useEffect,
   useMemo,
-  useState,
+  useSyncExternalStore,
   type ReactNode,
 } from "react";
 
@@ -22,6 +22,26 @@ const ThemeContext = createContext<ThemeContextValue | null>(null);
 
 const STORAGE_KEY = "interpulse-theme";
 
+let storeTheme: Theme = "dark";
+const listeners = new Set<() => void>();
+
+function emit() {
+  listeners.forEach((listener) => listener());
+}
+
+function subscribe(listener: () => void) {
+  listeners.add(listener);
+  return () => listeners.delete(listener);
+}
+
+function getSnapshot() {
+  return storeTheme;
+}
+
+function getServerSnapshot(): Theme {
+  return "dark";
+}
+
 function applyTheme(theme: Theme) {
   const root = document.documentElement;
   root.classList.remove("light", "dark");
@@ -29,30 +49,42 @@ function applyTheme(theme: Theme) {
   root.setAttribute("data-theme", theme);
 }
 
+function readPreferredTheme(): Theme {
+  try {
+    const stored = window.localStorage.getItem(STORAGE_KEY);
+    if (stored === "light" || stored === "dark") return stored;
+    return window.matchMedia("(prefers-color-scheme: light)").matches
+      ? "light"
+      : "dark";
+  } catch {
+    return "dark";
+  }
+}
+
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>("dark");
+  const theme = useSyncExternalStore(
+    subscribe,
+    getSnapshot,
+    getServerSnapshot,
+  );
 
   useEffect(() => {
-    const stored = window.localStorage.getItem(STORAGE_KEY) as Theme | null;
-    const preferred =
-      stored === "light" || stored === "dark"
-        ? stored
-        : window.matchMedia("(prefers-color-scheme: light)").matches
-          ? "light"
-          : "dark";
-    setThemeState(preferred);
+    const preferred = readPreferredTheme();
+    storeTheme = preferred;
     applyTheme(preferred);
+    emit();
   }, []);
 
   const setTheme = useCallback((next: Theme) => {
-    setThemeState(next);
+    storeTheme = next;
     applyTheme(next);
     window.localStorage.setItem(STORAGE_KEY, next);
+    emit();
   }, []);
 
   const toggleTheme = useCallback(() => {
-    setTheme(theme === "dark" ? "light" : "dark");
-  }, [setTheme, theme]);
+    setTheme(storeTheme === "dark" ? "light" : "dark");
+  }, [setTheme]);
 
   const value = useMemo(
     () => ({ theme, setTheme, toggleTheme }),
