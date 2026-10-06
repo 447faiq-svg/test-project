@@ -1,4 +1,4 @@
-gimport ConsultForm from "@/components/ConsultForm";
+import ConsultForm from "@/components/ConsultForm";
 import type { Metadata } from "next";
 import Image from "next/image";
 

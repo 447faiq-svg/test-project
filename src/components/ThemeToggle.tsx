@@ -1,7 +1,15 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import { useTheme, type Theme } from "@/components/ThemeProvider";
+
+function useMounted() {
+  return useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false,
+  );
+}
 
 const options: { value: Theme; label: string }[] = [
   { value: "light", label: "Light" },
@@ -10,11 +18,7 @@ const options: { value: Theme; label: string }[] = [
 
 export default function ThemeToggle() {
   const { theme, setTheme } = useTheme();
-  const [ready, setReady] = useState(false);
-
-  useEffect(() => {
-    setReady(true);
-  }, []);
+  const ready = useMounted();
 
   return (
     <div
