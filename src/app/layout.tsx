@@ -49,7 +49,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} ${syne.variable} dark h-full antialiased`}
       suppressHydrationWarning
     >
-      <body className="flex min-h-full flex-col bg-[var(--surface)] font-sans text-[var(--text)] antialiased">
+      <body
+        className="flex min-h-full flex-col bg-[var(--surface)] font-sans text-[var(--text)] antialiased"
+        suppressHydrationWarning
+      >
         <Script id="theme-init" strategy="beforeInteractive">
           {themeInitScript}
         </Script>

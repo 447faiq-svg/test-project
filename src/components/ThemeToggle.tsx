@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { useTheme, type Theme } from "@/components/ThemeProvider";
 
 const options: { value: Theme; label: string }[] = [
@@ -9,21 +10,28 @@ const options: { value: Theme; label: string }[] = [
 
 export default function ThemeToggle() {
   const { theme, setTheme } = useTheme();
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    setReady(true);
+  }, []);
 
   return (
     <div
       role="group"
       aria-label="Color theme"
       className="inline-flex items-center rounded-full border border-[var(--border)] bg-[var(--surface-elevated)] p-1"
+      suppressHydrationWarning
     >
       {options.map((option) => {
-        const active = theme === option.value;
+        const active = ready && theme === option.value;
         return (
           <button
             key={option.value}
             type="button"
             aria-pressed={active}
             onClick={() => setTheme(option.value)}
+            suppressHydrationWarning
             className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1.5 text-xs font-medium transition-colors ${
               active
                 ? "bg-[#FF6B1A] text-white shadow-sm"

@@ -85,7 +85,7 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-[var(--border-strong)] bg-[var(--header-bg)] backdrop-blur transition-all duration-300 supports-[backdrop-filter]:bg-[var(--header-bg)]">
-      <div className="mx-auto flex h-16 w-full max-w-[1280px] items-center justify-between gap-2 px-4 sm:h-20 sm:gap-3 sm:px-6 lg:h-24 lg:px-8">
+      <div className="mx-auto flex h-16 w-full max-w-[1280px] items-center justify-between gap-3 px-4 sm:h-20 sm:px-6 lg:h-[4.5rem] lg:px-8">
         <Link
           href="/"
           aria-label="InterPulse Global"
@@ -225,12 +225,12 @@ export default function Header() {
           )}
         </nav>
 
-        <div className="flex items-center gap-2 sm:gap-3">
+        <div className="flex shrink-0 items-center gap-2 sm:gap-3">
           <ThemeToggle />
 
           <a
             href="#consult"
-            className="hidden items-center justify-center rounded-md bg-[#FF6B1A] px-4 py-2.5 text-[12px] font-bold tracking-[0.06em] text-white uppercase transition hover:bg-[#E65200] sm:inline-flex"
+            className="hidden h-11 shrink-0 items-center justify-center rounded-md bg-[#FF6B1A] px-5 text-[12px] font-bold tracking-[0.08em] whitespace-nowrap text-white uppercase transition hover:bg-[#E65200] lg:inline-flex lg:h-12 lg:px-7"
           >
             Get Consultation
           </a>
