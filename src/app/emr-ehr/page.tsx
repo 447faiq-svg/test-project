@@ -1,6 +1,6 @@
-import ConsultForm from "@/components/ConsultForm";
 import type { Metadata } from "next";
 import Image from "next/image";
+import ConsultForm from "@/components/ConsultForm";
 
 export const metadata: Metadata = {
   title: "EMR & EHR Support Services | InterPulse Global",
