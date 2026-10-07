@@ -7,11 +7,11 @@ const services = [
 ];
 
 const specialities = [
-  { label: "Cardiology", href: "/specialties" },
-  { label: "Dentistry", href: "/specialties" },
-  { label: "Orthopedics", href: "/specialties" },
-  { label: "Pediatrics", href: "/specialties" },
-  { label: "Obstetrics & Gynaecology", href: "/specialties" },
+  { label: "Cardiology", href: "/specialties/cardiology" },
+  { label: "Dentistry", href: "/specialties/dentistry" },
+  { label: "Orthopedics", href: "/specialties/orthopedics" },
+  { label: "Pediatrics", href: "/specialties/pediatrics" },
+  { label: "Obstetrics & Gynaecology", href: "/specialties/obstetrics-gynaecology" },
 ];
 
 const contacts = [
@@ -22,8 +22,8 @@ const contacts = [
     icon: "phone" as const,
   },
   {
-    title: "Dr. Ayesha Khan",
-    detail: "12-C Gulberg III, Lahore, Punjab, Pakistan",
+    title: "Dr. Michael Torres",
+    detail: "2450 Mission Street, Suite 400, San Francisco, CA 94110, USA",
     href: "/contact",
     icon: "pin" as const,
   },
@@ -168,12 +168,20 @@ export default function Footer() {
           <p className="mt-3 text-xs text-white/65">
             © {new Date().getFullYear()} InterPulse Global. All Rights Reserved.
           </p>
-          <a
-            href="#"
-            className="mt-2 inline-block text-xs font-medium text-[#FF9A55] transition hover:text-white"
-          >
-            Privacy Policy
-          </a>
+          <div className="mt-2 flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
+            <a
+              href="/privacy"
+              className="text-xs font-medium text-[#FF9A55] transition hover:text-white"
+            >
+              Privacy Policy
+            </a>
+            <a
+              href="/terms"
+              className="text-xs font-medium text-[#FF9A55] transition hover:text-white"
+            >
+              Terms &amp; Conditions
+            </a>
+          </div>
         </div>
       </div>
     </footer>

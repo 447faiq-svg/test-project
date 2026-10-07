@@ -1,26 +1,7 @@
 @import "tailwindcss";
 
-/* Default = dark */
+/* Default = light */
 :root,
-html.dark {
-  --background: #0a0b0d;
-  --foreground: #ededed;
-  --surface: #0a0a0c;
-  --surface-elevated: #12141a;
-  --surface-card: #14161c;
-  --surface-soft: #161618;
-  --text: #ffffff;
-  --text-muted: #94a3b8;
-  --text-dim: #9ca3af;
-  --border: rgba(255, 255, 255, 0.08);
-  --border-strong: rgba(36, 51, 66, 0.4);
-  --header-bg: rgba(1, 13, 24, 0.72);
-  --header-bg-solid: rgba(1, 13, 24, 0.95);
-  --input-bg: #0b0d12;
-  --accent: #ff6b1a;
-  --glow: rgba(255, 107, 26, 0.12);
-}
-
 html.light {
   --background: #f4f6f8;
   --foreground: #0f172a;
@@ -38,6 +19,25 @@ html.light {
   --input-bg: #f8fafc;
   --accent: #ff6b1a;
   --glow: rgba(255, 107, 26, 0.08);
+}
+
+html.dark {
+  --background: #0a0b0d;
+  --foreground: #ededed;
+  --surface: #0a0a0c;
+  --surface-elevated: #12141a;
+  --surface-card: #14161c;
+  --surface-soft: #161618;
+  --text: #ffffff;
+  --text-muted: #94a3b8;
+  --text-dim: #9ca3af;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(36, 51, 66, 0.4);
+  --header-bg: rgba(1, 13, 24, 0.72);
+  --header-bg-solid: rgba(1, 13, 24, 0.95);
+  --input-bg: #0b0d12;
+  --accent: #ff6b1a;
+  --glow: rgba(255, 107, 26, 0.12);
 }
 
 @theme inline {

@@ -34,7 +34,7 @@ const themeInitScript = `
     var stored = localStorage.getItem('interpulse-theme');
     var theme = stored === 'light' || stored === 'dark'
       ? stored
-      : (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+      : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
     document.documentElement.classList.remove('light','dark');
     document.documentElement.classList.add(theme);
     document.documentElement.setAttribute('data-theme', theme);
@@ -46,7 +46,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${syne.variable} dark h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${syne.variable} light h-full antialiased`}
       suppressHydrationWarning
     >
       <body

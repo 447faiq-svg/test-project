@@ -1,5 +1,6 @@
 import BlogSection from "@/components/BlogSection";
 import CompanyRecords from "@/components/CompanyRecords";
+import ConsultBanner from "@/components/ConsultBanner";
 import ConsultForm from "@/components/ConsultForm";
 import EmrEhr from "@/components/EmrEhr";
 import Hero from "@/components/Hero";
@@ -12,6 +13,7 @@ export default function Home() {
   return (
     <main className="flex flex-1 flex-col">
       <Hero />
+      <ConsultBanner />
       <ConsultForm />
       <Services />
       <TrustStats />

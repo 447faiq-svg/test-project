@@ -1,7 +1,7 @@
 "use client";
 
 import { useSyncExternalStore } from "react";
-import { useTheme, type Theme } from "@/components/ThemeProvider";
+import { useTheme } from "@/components/ThemeProvider";
 
 function useMounted() {
   return useSyncExternalStore(
@@ -11,43 +11,22 @@ function useMounted() {
   );
 }
 
-const options: { value: Theme; label: string }[] = [
-  { value: "light", label: "Light" },
-  { value: "dark", label: "Dark" },
-];
-
 export default function ThemeToggle() {
-  const { theme, setTheme } = useTheme();
+  const { theme, toggleTheme } = useTheme();
   const ready = useMounted();
+  const isDark = ready && theme === "dark";
 
   return (
-    <div
-      role="group"
-      aria-label="Color theme"
-      className="inline-flex items-center rounded-full border border-[var(--border)] bg-[var(--surface-elevated)] p-1"
+    <button
+      type="button"
+      aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+      title={isDark ? "Light mode" : "Dark mode"}
+      onClick={toggleTheme}
       suppressHydrationWarning
+      className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-[var(--border)] bg-[var(--surface-elevated)] text-[var(--text-muted)] transition hover:border-[#FF6B1A]/45 hover:text-[#FF6B1A]"
     >
-      {options.map((option) => {
-        const active = ready && theme === option.value;
-        return (
-          <button
-            key={option.value}
-            type="button"
-            aria-pressed={active}
-            onClick={() => setTheme(option.value)}
-            suppressHydrationWarning
-            className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1.5 text-xs font-medium transition-colors ${
-              active
-                ? "bg-[#FF6B1A] text-white shadow-sm"
-                : "text-[var(--text-muted)] hover:text-[var(--text)]"
-            }`}
-          >
-            {option.value === "light" ? <SunIcon /> : <MoonIcon />}
-            <span className="hidden sm:inline">{option.label}</span>
-          </button>
-        );
-      })}
-    </div>
+      {isDark ? <SunIcon /> : <MoonIcon />}
+    </button>
   );
 }
 
@@ -56,7 +35,7 @@ function SunIcon() {
     <svg
       aria-hidden
       viewBox="0 0 24 24"
-      className="h-3.5 w-3.5"
+      className="h-4 w-4"
       fill="none"
       stroke="currentColor"
       strokeWidth="2"
@@ -73,7 +52,7 @@ function MoonIcon() {
     <svg
       aria-hidden
       viewBox="0 0 24 24"
-      className="h-3.5 w-3.5"
+      className="h-4 w-4"
       fill="none"
       stroke="currentColor"
       strokeWidth="2"

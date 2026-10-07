@@ -80,6 +80,13 @@ export default function CompanyRecords() {
           support across 30+ specialties. Results may vary by practice,
           specialty, payer mix and claim volume.
         </p>
+
+        <a
+          href="/#consult"
+          className="mt-8 inline-flex text-xs font-semibold tracking-[0.08em] text-[#FF9A55] uppercase transition hover:text-white"
+        >
+          Learn More →
+        </a>
       </div>
     </section>
   );

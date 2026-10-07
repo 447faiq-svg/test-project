@@ -66,6 +66,14 @@ export default function TrustStats() {
           </div>
         ))}
       </div>
+      <div className="relative mt-10 text-center">
+        <a
+          href="/about"
+          className="inline-flex text-xs font-semibold tracking-[0.06em] text-[#FF6B1A] uppercase transition hover:text-[#E65200]"
+        >
+          Learn More →
+        </a>
+      </div>
     </section>
   );
 }

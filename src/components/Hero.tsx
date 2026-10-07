@@ -44,7 +44,7 @@ export default function Hero() {
               href="#solutions"
               className="inline-flex h-12 items-center justify-center border border-[var(--border-strong)] bg-transparent px-6 text-[12px] font-semibold tracking-[0.06em] text-[var(--text)] uppercase transition hover:border-[#FF6B1A]/50 hover:text-[#FF6B1A]"
             >
-              View Services
+              Learn More
             </a>
           </div>
         </div>
