@@ -1,21 +1,98 @@
 import ConsultForm from "@/components/ConsultForm";
+import type { Metadata } from "next";
 import Image from "next/image";
 
-const auditIncludes = [
-  "Review of charge entry and claim accuracy",
-  "Assessment of coding compliance and documentation",
-  "Analysis of accounts receivable aging and denial rates",
-  "Insights into revenue cycle performance",
-  "Evaluation of HIPAA compliance",
+export const metadata: Metadata = {
+  title: "Medical Billing and Coding Services | InterPulse Global",
+  description:
+    "End-to-end medical billing and coding support—eligibility verification, claims, payment posting, denial management, AR follow-up, and specialty coding.",
+};
+
+const highlights = [
+  "Insurance eligibility verification",
+  "Charge entry & clean claims",
+  "Denial management & appeals",
+  "ICD-10, CPT & HCPCS coding",
 ];
 
-const badges = [
-  { title: "HIPAA", subtitle: "Compliant" },
+const billingSupport = [
+  {
+    title: "Insurance Eligibility & Benefits Verification",
+    body: "Verify patient coverage, eligibility, benefits, and insurance details before services are provided.",
+  },
+  {
+    title: "Charge Entry & Claims Submission",
+    body: "Accurately enter charges and submit clean claims to the appropriate insurance payers.",
+  },
+  {
+    title: "Payment Posting & Account Reconciliation",
+    body: "Record insurance and patient payments accurately while reconciling accounts to maintain accurate financial records.",
+  },
+  {
+    title: "Denial Management & Appeals",
+    body: "Identify the causes of claim denials, take corrective action, and submit appropriate appeals to help recover missed revenue.",
+  },
+  {
+    title: "Accounts Receivable Follow-Up",
+    body: "Monitor outstanding balances and conduct timely payer follow-up to reduce aging accounts receivable.",
+  },
+  {
+    title: "Patient Billing & Collections Support",
+    body: "Generate patient statements and support the collection process for outstanding patient balances.",
+  },
 ];
 
-function CheckIcon() {
+const codingServices = [
+  {
+    title: "ICD-10, CPT & HCPCS Coding",
+    body: "Coding performed by qualified and certified medical coding professionals based on clinical documentation and applicable coding guidelines.",
+  },
+  {
+    title: "Medical Record & Documentation Audits",
+    body: "Review clinical documentation and coding practices to identify discrepancies, potential compliance concerns, and opportunities for improvement.",
+  },
+  {
+    title: "Risk Adjustment Coding",
+    body: "Support accurate identification and reporting of relevant risk-adjustment diagnoses based on supporting documentation.",
+  },
+  {
+    title: "Specialty-Specific Coding Expertise",
+    body: "Coding support tailored to the requirements and workflows of different medical specialties.",
+  },
+  {
+    title: "Coding Updates & Compliance Review",
+    body: "Stay aligned with coding changes, regulatory requirements, and applicable guidelines through ongoing coding updates and compliance checks.",
+  },
+];
+
+const onboardingSteps = [
+  {
+    title: "Introduction & Welcome Session",
+    body: "We begin with a personalized welcome call to introduce your dedicated support team, explain the onboarding process, and discuss how InterPulse Global will support your practice’s billing and coding operations.",
+  },
+  {
+    title: "Practice Information & Onboarding Questionnaire",
+    body: "You’ll receive a structured onboarding questionnaire designed to collect the essential information we need about your practice, providers, systems, billing processes, and operational requirements.",
+  },
+  {
+    title: "Detailed Onboarding Consultation",
+    body: "Our specialists conduct an in-depth onboarding meeting to review your practice’s requirements, understand your current workflows, identify key priorities, and answer any questions before implementation begins.",
+  },
+  {
+    title: "Customized Workflow & SOP Development",
+    body: "Using the information gathered during onboarding, we develop customized Standard Operating Procedures (SOPs) based on your practice’s specific workflows, billing requirements, coding processes, and operational preferences.",
+  },
+  {
+    title: "Go-Live & Service Transition",
+    body: "Once preparation and workflow setup are complete, we establish your official go-live date. On launch day, the agreed billing and coding operations transition to the InterPulse Global team, with the goal of maintaining continuity and minimizing disruption to your practice.",
+  },
+];
+
+function CheckIcon({ className = "" }: { className?: string }) {
   return (
-    <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FF6B1A] text-white">
+    <span
+      className={`mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FF6B1A] text-white ${className}`}
+    >
       <svg
         viewBox="0 0 24 24"
         className="h-3 w-3"
@@ -33,7 +110,7 @@ function CheckIcon() {
 export default function MedicalBillingCodingPage() {
   return (
     <main className="flex flex-1 flex-col">
-      <section className="relative min-h-[480px] overflow-hidden sm:min-h-[560px] lg:min-h-[620px]">
+      <section className="relative min-h-[420px] overflow-hidden sm:min-h-[480px] lg:min-h-[560px]">
         <Image
           src="/billing-coding-banner.jpg"
           alt="Medical billing and coding specialist reviewing claims"
@@ -64,51 +141,39 @@ export default function MedicalBillingCodingPage() {
             Services
           </p>
           <h1 className="mt-3 max-w-3xl font-[family-name:var(--font-display)] text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-[2.6rem] md:leading-[1.15]">
-            Request Your Complimentary Medical Billing Audit from InterPulse
+            Comprehensive Medical Billing &amp; Coding Solutions by InterPulse
             Global
           </h1>
-          <p className="mt-4 max-w-2xl text-base text-white/90 sm:text-lg sm:leading-8">
-            Uncover lost revenue, coding weaknesses, and denial patterns in your
-            current workflow—completely risk-free.
+          <div className="mt-5 h-px w-24 bg-white/50" />
+          <p className="mt-5 max-w-2xl text-[15px] leading-7 text-white/85 sm:text-base sm:leading-8">
+            At InterPulse Global, we provide end-to-end medical billing and
+            coding support designed to simplify the revenue cycle and help
+            healthcare providers stay focused on delivering quality patient care.
+            From verifying insurance coverage and submitting claims to posting
+            payments and resolving denials, our team supports each stage of the
+            billing process.
           </p>
-
-          <div className="mt-8">
-            <p className="text-sm font-semibold tracking-wide text-white uppercase">
-              Your Free Audit Includes:
-            </p>
-            <ul className="mt-4 grid max-w-2xl gap-3">
-              {auditIncludes.map((item) => (
-                <li
-                  key={item}
-                  className="flex items-start gap-2.5 text-sm font-medium text-white sm:text-[15px]"
-                >
-                  <CheckIcon />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="mt-10 flex flex-wrap gap-3 sm:gap-4">
-            {badges.map((badge) => (
-              <div
-                key={badge.title}
-                className="flex h-[72px] w-[72px] flex-col items-center justify-center rounded-full border border-white/30 bg-[#0B1F33]/70 text-center backdrop-blur-sm sm:h-20 sm:w-20"
+          <ul className="mt-8 grid max-w-2xl gap-3 sm:grid-cols-2">
+            {highlights.map((item) => (
+              <li
+                key={item}
+                className="flex items-start gap-2.5 text-sm font-medium text-white"
               >
-                <span className="text-[10px] font-bold leading-tight text-[#FF9A55] uppercase sm:text-[11px]">
-                  {badge.title}
-                </span>
-                <span className="mt-0.5 px-1 text-[8px] leading-tight text-white/85 sm:text-[9px]">
-                  {badge.subtitle}
-                </span>
-              </div>
+                <CheckIcon />
+                <span>{item}</span>
+              </li>
             ))}
-          </div>
-
-          <div className="mt-9">
+          </ul>
+          <div className="mt-9 flex flex-wrap gap-4">
             <a
               href="#consult"
               className="inline-flex h-12 items-center justify-center bg-[#FF6B1A] px-7 text-[12px] font-bold tracking-[0.08em] text-white uppercase transition hover:bg-[#E65200]"
+            >
+              Get Consultation
+            </a>
+            <a
+              href="/services/medical-billing-audit"
+              className="inline-flex h-12 items-center justify-center border border-white/35 px-6 text-[12px] font-bold tracking-[0.08em] text-white uppercase transition hover:border-white/70 hover:bg-white/10"
             >
               Request Free Audit
             </a>
@@ -124,12 +189,131 @@ export default function MedicalBillingCodingPage() {
             Medical Billing and Coding Services
           </h2>
           <p className="mt-6 text-[15px] leading-8 text-[var(--text-muted)] sm:text-base sm:leading-8">
-            InterPulse Global certified coding and billing specialists translate
-            clinical documentation into accurate CPT, ICD-10, and HCPCS claims.
-            We help practices reduce rework, lift first-pass acceptance, and
-            protect reimbursement with specialty-aware coding review and
-            compliance-aligned claim preparation.
+            Our services are tailored to meet the needs of healthcare practices
+            of different sizes and specialties throughout the United States.
           </p>
+        </div>
+      </section>
+
+      <section className="border-t border-[var(--border)] bg-[var(--surface-elevated)] px-4 py-16 sm:px-6 sm:py-20 lg:py-24">
+        <div className="mx-auto w-full max-w-[1100px]">
+          <div className="mx-auto max-w-3xl text-center">
+            <h2 className="font-[family-name:var(--font-display)] text-3xl font-bold tracking-tight text-[var(--text)] sm:text-4xl">
+              End-to-End Medical Billing Support
+            </h2>
+            <p className="mt-6 text-[15px] leading-8 text-[var(--text-muted)] sm:text-base sm:leading-8">
+              Our medical billing services are designed to help practices
+              maintain accurate claims, improve collections, and keep their
+              revenue cycle moving efficiently.
+            </p>
+          </div>
+
+          <ul className="mt-10 grid gap-4 sm:grid-cols-2">
+            {billingSupport.map((item) => (
+              <li
+                key={item.title}
+                className="border border-[var(--border)] bg-[var(--surface)] px-5 py-5"
+              >
+                <div className="flex items-start gap-3">
+                  <CheckIcon />
+                  <div>
+                    <h3 className="font-[family-name:var(--font-display)] text-base font-bold text-[var(--text)]">
+                      {item.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-7 text-[var(--text-muted)]">
+                      {item.body}
+                    </p>
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className="bg-[var(--surface)] px-4 py-16 sm:px-6 sm:py-20 lg:py-24">
+        <div className="mx-auto w-full max-w-[1100px]">
+          <div className="mx-auto max-w-3xl text-center">
+            <h2 className="font-[family-name:var(--font-display)] text-3xl font-bold tracking-tight text-[var(--text)] sm:text-4xl">
+              Professional Medical Coding Services
+            </h2>
+            <p className="mt-6 text-[15px] leading-8 text-[var(--text-muted)] sm:text-base sm:leading-8">
+              Accurate coding plays an important role in compliant billing and
+              appropriate reimbursement. InterPulse Global provides coding
+              support to help practices maintain accurate and consistent coding
+              practices.
+            </p>
+          </div>
+
+          <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {codingServices.map((item) => (
+              <li
+                key={item.title}
+                className="border border-[var(--border)] bg-[var(--surface-elevated)] px-5 py-5"
+              >
+                <div className="flex items-start gap-3">
+                  <CheckIcon />
+                  <div>
+                    <h3 className="font-[family-name:var(--font-display)] text-base font-bold text-[var(--text)]">
+                      {item.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-7 text-[var(--text-muted)]">
+                      {item.body}
+                    </p>
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className="border-t border-[var(--border)] bg-[var(--surface-elevated)] px-4 py-16 sm:px-6 sm:py-20 lg:py-24">
+        <div className="mx-auto w-full max-w-[1100px]">
+          <div className="mx-auto max-w-3xl text-center">
+            <h2 className="font-[family-name:var(--font-display)] text-3xl font-bold tracking-tight text-[var(--text)] sm:text-4xl">
+              How InterPulse Global Onboards Your Medical Billing &amp; Coding
+              Services
+            </h2>
+            <p className="mt-6 text-[15px] leading-8 text-[var(--text-muted)] sm:text-base sm:leading-8">
+              We make the transition to outsourced medical billing and coding
+              straightforward, organized, and transparent. Our onboarding process
+              is designed to understand your practice, establish the right
+              workflows, and prepare our team for a smooth launch.
+            </p>
+          </div>
+
+          <ol className="mt-10 grid gap-4">
+            {onboardingSteps.map((step, index) => (
+              <li
+                key={step.title}
+                className="border border-[var(--border)] bg-[var(--surface)] px-5 py-5 sm:px-6"
+              >
+                <div className="flex items-start gap-4">
+                  <span className="inline-flex h-8 w-8 shrink-0 items-center justify-center bg-[#FF6B1A] text-sm font-bold text-white">
+                    {index + 1}
+                  </span>
+                  <div>
+                    <h3 className="font-[family-name:var(--font-display)] text-lg font-bold text-[var(--text)]">
+                      {step.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-7 text-[var(--text-muted)] sm:text-[15px]">
+                      {step.body}
+                    </p>
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ol>
+
+          <div className="mt-12 text-center">
+            <a
+              href="#consult"
+              className="inline-flex h-12 items-center justify-center bg-[#FF6B1A] px-7 text-[12px] font-bold tracking-[0.08em] text-white uppercase transition hover:bg-[#E65200]"
+            >
+              Get Consultation
+            </a>
+          </div>
         </div>
       </section>
     </main>

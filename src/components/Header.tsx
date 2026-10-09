@@ -1,30 +1,41 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
+import SiteSearch from "@/components/SiteSearch";
 import ThemeToggle from "@/components/ThemeToggle";
 
 const servicesDropdown = [
-  { label: "AI Agents", href: "/#solutions", comingSoon: true },
+  { label: "AI Agents", href: "/services/ai-agents", comingSoon: true },
   { label: "Medical Billing Services", href: "/services/medical-billing" },
   {
     label: "Medical Billing and Coding Services",
     href: "/services/medical-billing-coding",
   },
+  {
+    label: "Laboratory Billing Services",
+    href: "/services/laboratory-billing",
+  },
+  {
+    label: "Medical Credentialing Services",
+    href: "/services/medical-credentialing",
+  },
+  { label: "MIPS Reporting", href: "/services/mips-reporting" },
   { label: "Revenue Cycle Management", href: "/services/revenue-cycle-management" },
   { label: "Medical Billing Audit", href: "/services/medical-billing-audit" },
 ];
 
 const specialitiesDropdown = [
-  { label: "Cardiology", href: "/specialties" },
-  { label: "Endocrinology", href: "/specialties" },
-  { label: "Gastroenterology", href: "/specialties" },
-  { label: "Obstetrics & Gynaecology", href: "/specialties" },
-  { label: "Orthopedics", href: "/specialties" },
-  { label: "Otolaryngology (ENT)", href: "/specialties" },
-  { label: "Dentistry", href: "/specialties" },
-  { label: "Pediatrics", href: "/specialties" },
-  { label: "Nephrology", href: "/specialties" },
+  { label: "Cardiology", href: "/specialties/cardiology" },
+  { label: "Endocrinology", href: "/specialties/endocrinology" },
+  { label: "Gastroenterology", href: "/specialties/gastroenterology" },
+  { label: "Obstetrics & Gynaecology", href: "/specialties/obstetrics-gynaecology" },
+  { label: "Orthopedics", href: "/specialties/orthopedics" },
+  { label: "Otolaryngology (ENT)", href: "/specialties/otolaryngology-ent" },
+  { label: "Dentistry", href: "/specialties/dentistry" },
+  { label: "Pediatrics", href: "/specialties/pediatrics" },
+  { label: "Nephrology", href: "/specialties/nephrology" },
   { label: "Explore More...", href: "/specialties" },
 ];
 
@@ -33,9 +44,12 @@ const resourcesDropdown = [
 ];
 
 const companyDropdown = [
+  { label: "About Us", href: "/about" },
   { label: "Contact Us", href: "/contact" },
   { label: "Locations", href: "/locations" },
   { label: "Careers", href: "/careers" },
+  { label: "Privacy Policy", href: "/privacy" },
+  { label: "Terms & Conditions", href: "/terms" },
 ];
 
 const navLinks = [
@@ -85,72 +99,25 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-[var(--border-strong)] bg-[var(--header-bg)] backdrop-blur transition-all duration-300 supports-[backdrop-filter]:bg-[var(--header-bg)]">
-      <div className="mx-auto flex h-16 w-full max-w-[1280px] items-center justify-between gap-2 px-4 sm:h-20 sm:gap-3 sm:px-6 lg:h-24 lg:px-8">
+      <div className="mx-auto grid h-16 w-full max-w-[1440px] grid-cols-[1fr_auto] items-center gap-3 px-4 sm:h-[4.5rem] sm:gap-4 sm:px-6 lg:h-20 lg:grid-cols-[minmax(160px,auto)_1fr_auto] lg:gap-6 lg:px-8 xl:gap-8 xl:px-10">
         <Link
           href="/"
           aria-label="InterPulse Global"
-          className="flex min-w-0 shrink-0 items-center self-center gap-2 sm:gap-2.5"
+          className="flex min-w-0 shrink-0 items-center"
         >
-          <svg
-            width="40"
-            height="40"
-            viewBox="0 0 64 64"
-            fill="none"
-            aria-hidden="true"
-            className="h-8 w-8 shrink-0 sm:h-10 sm:w-10 lg:h-11 lg:w-11"
-          >
-            <path
-              d="M18 34c0-10 8-18 18-18"
-              stroke="#00407A"
-              strokeWidth="5"
-              strokeLinecap="round"
-            />
-            <path
-              d="M46 30c0 10-8 18-18 18"
-              stroke="#F37021"
-              strokeWidth="5"
-              strokeLinecap="round"
-            />
-            <path
-              d="M22 40A16 16 0 0 1 18 30"
-              stroke="#2563EB"
-              strokeWidth="5"
-              strokeLinecap="round"
-            />
-            <path
-              d="M42 24A16 16 0 0 1 46 34"
-              stroke="#FB923C"
-              strokeWidth="5"
-              strokeLinecap="round"
-            />
-            <path
-              d="M14 33h12l3-7 4 14 3-7h8l6-4"
-              stroke="#F37021"
-              strokeWidth="3.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <path
-              d="M48 29l8-5-2 9"
-              stroke="#F37021"
-              strokeWidth="3.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-          <span className="leading-tight">
-            <span className="block text-[15px] font-bold tracking-tight text-[var(--text)] sm:text-[17px] lg:text-[18px]">
-              InterPulse
-            </span>
-            <span className="block text-[10px] font-medium tracking-[0.22em] text-[var(--text-muted)] uppercase sm:text-[11px]">
-              Global
-            </span>
-          </span>
+          <Image
+            src="/interpulse-logo-nav.png"
+            alt="InterPulse Global"
+            width={168}
+            height={56}
+            priority
+            className="h-9 w-auto object-contain object-left sm:h-10 lg:h-11"
+          />
         </Link>
 
         <nav
           ref={navRef}
-          className="hidden items-center gap-5 text-[13px] font-semibold tracking-[0.04em] uppercase lg:flex xl:gap-6"
+          className="hidden min-w-0 items-center justify-center gap-3.5 text-[12px] font-semibold tracking-[0.03em] uppercase lg:flex xl:gap-5 xl:text-[13px]"
         >
           {navLinks.map((link) =>
             link.items ? (
@@ -225,12 +192,13 @@ export default function Header() {
           )}
         </nav>
 
-        <div className="flex items-center gap-2 sm:gap-3">
+        <div className="flex shrink-0 items-center justify-end gap-2 sm:gap-2.5 lg:gap-3">
+          <SiteSearch className="hidden xl:block" />
           <ThemeToggle />
 
           <a
             href="#consult"
-            className="hidden items-center justify-center rounded-md bg-[#FF6B1A] px-4 py-2.5 text-[12px] font-bold tracking-[0.06em] text-white uppercase transition hover:bg-[#E65200] sm:inline-flex"
+            className="hidden h-10 shrink-0 items-center justify-center rounded-md bg-[#FF6B1A] px-4 text-[11px] font-bold tracking-[0.07em] whitespace-nowrap text-white uppercase transition hover:bg-[#E65200] lg:inline-flex xl:h-11 xl:px-5"
           >
             Get Consultation
           </a>
@@ -240,7 +208,7 @@ export default function Header() {
             aria-label="Toggle Menu"
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
-            className="inline-flex h-9 w-9 items-center justify-center rounded-md text-[var(--text)] transition-colors hover:bg-[var(--border)] lg:hidden"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-md text-[var(--text)] transition-colors hover:bg-[var(--border)] lg:hidden"
           >
             {open ? <CloseIcon /> : <MenuIcon />}
           </button>
@@ -249,6 +217,13 @@ export default function Header() {
 
       {open && (
         <div className="max-h-[calc(100dvh-4rem)] overflow-y-auto border-t border-[var(--border-strong)] bg-[var(--header-bg-solid)] px-4 py-4 backdrop-blur sm:max-h-[calc(100dvh-5rem)] lg:hidden">
+          <div className="mb-3 flex items-center gap-2 md:hidden">
+            <SiteSearch
+              compact
+              className="min-w-0 flex-1"
+              onNavigate={() => setOpen(false)}
+            />
+          </div>
           <nav className="flex flex-col gap-1">
             {navLinks.map((link) =>
               link.items ? (

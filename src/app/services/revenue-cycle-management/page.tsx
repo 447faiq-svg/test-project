@@ -125,6 +125,56 @@ const trustStats = [
   { value: "97.95%", label: "Collection Ratio" },
 ];
 
+const rcmWorkflow = [
+  {
+    title: "Patient Registration & Insurance Verification",
+    body: "We review patient demographics, insurance information, eligibility status, and available benefit details to help ensure coverage information is accurate before claims are submitted.",
+  },
+  {
+    title: "Authorization & Referral Coordination",
+    body: "When included in the selected service scope, we monitor prior authorization and referral requirements, authorization numbers, effective dates, referral details, and supporting documentation.",
+  },
+  {
+    title: "Charge Capture & Coding Review",
+    body: "Available clinical documentation, diagnosis and procedure codes, modifiers, charges, and dates of service are reviewed before claims move forward for submission.",
+  },
+  {
+    title: "Claim Quality Review & Submission",
+    body: "Before electronic submission, claims are checked for missing information, formatting concerns, coding inconsistencies, and applicable payer-specific requirements to help reduce avoidable rejections.",
+  },
+  {
+    title: "Claim Rejections & Status Monitoring",
+    body: "We monitor clearinghouse rejections and payer claim statuses, address identified issues, and document follow-up activities to maintain visibility throughout the claim lifecycle.",
+  },
+  {
+    title: "Denial Management & Underpayment Analysis",
+    body: "Denied claims are categorized and reviewed to determine appropriate next steps. We monitor appeal filing deadlines, prepare or support appeals where applicable, and investigate payments that differ from expected reimbursement.",
+  },
+  {
+    title: "Payment Posting & Account Reconciliation",
+    body: "ERA and EOB transactions, contractual adjustments, denials, and patient responsibility amounts are posted and reviewed against claim and deposit information to support accurate account reconciliation.",
+  },
+  {
+    title: "Accounts Receivable, Patient Billing & Reporting",
+    body: "We monitor outstanding balances by aging, support patient statement workflows, and provide reporting related to claims, payments, denials, and accounts receivable activity.",
+  },
+];
+
+const completeSupport = [
+  {
+    title: "Accounts Receivable & Underpayment Recovery",
+    body: "Unpaid, partially paid, and underpaid claims are reviewed based on factors such as aging, payer, outstanding balance, and denial status. Follow-up activities and payer responses are documented to support tracking and reporting.",
+  },
+  {
+    title: "Accurate Payment Posting & Reconciliation",
+    body: "Insurance payments received through ERAs and EOBs, contractual adjustments, denials, and patient responsibility amounts are posted and reviewed against the corresponding claims and deposit information.",
+  },
+  {
+    title: "Patient Billing & Financial Support",
+    body: "Patient statements, billing inquiries, outstanding balances, and approved payment workflows are managed according to your practice’s policies, selected service scope, and available billing technology.",
+  },
+];
+
 function CheckIcon({ className = "" }: { className?: string }) {
   return (
     <span
@@ -463,6 +513,97 @@ export default function RevenueCycleManagementPage() {
         </div>
       </section>
 
+      {/* How we manage RCM */}
+      <section className="bg-[var(--surface)] px-4 py-16 sm:px-6 sm:py-20 lg:py-24">
+        <div className="mx-auto w-full max-w-[1100px]">
+          <div className="mx-auto max-w-3xl text-center">
+            <h2 className="font-[family-name:var(--font-display)] text-3xl font-bold tracking-tight text-[var(--text)] sm:text-4xl">
+              How InterPulse Global Manages the Revenue Cycle
+            </h2>
+            <p className="mt-6 text-[15px] leading-8 text-[var(--text-muted)] sm:text-base sm:leading-8">
+              Revenue cycle management (RCM) encompasses the administrative,
+              clinical, and financial activities that take place from the moment
+              a patient is scheduled through the resolution of the final account
+              balance.
+            </p>
+            <p className="mt-5 text-[15px] leading-8 text-[var(--text-muted)] sm:text-base sm:leading-8">
+              InterPulse Global provides support across the revenue cycle based
+              on your practice&apos;s technology, payer mix, specialty,
+              workflows, and agreed scope of services. Our structured approach
+              helps practices maintain organized billing operations while
+              improving visibility into claims, payments, denials, and
+              outstanding balances.
+            </p>
+          </div>
+
+          <div className="mx-auto mt-14 max-w-3xl text-center">
+            <h3 className="font-[family-name:var(--font-display)] text-2xl font-bold tracking-tight text-[var(--text)] sm:text-3xl">
+              Our Revenue Cycle Management Workflow
+            </h3>
+          </div>
+
+          <ul className="mt-10 grid gap-4 sm:grid-cols-2">
+            {rcmWorkflow.map((item) => (
+              <li
+                key={item.title}
+                className="border border-[var(--border)] bg-[var(--surface-elevated)] px-5 py-5"
+              >
+                <div className="flex items-start gap-3">
+                  <CheckIcon />
+                  <div>
+                    <h4 className="font-[family-name:var(--font-display)] text-base font-bold text-[var(--text)]">
+                      {item.title}
+                    </h4>
+                    <p className="mt-2 text-sm leading-7 text-[var(--text-muted)]">
+                      {item.body}
+                    </p>
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* Complete support */}
+      <section className="border-t border-[var(--border)] bg-[var(--surface-elevated)] px-4 py-16 sm:px-6 sm:py-20 lg:py-24">
+        <div className="mx-auto w-full max-w-[1100px]">
+          <div className="mx-auto max-w-3xl text-center">
+            <h2 className="font-[family-name:var(--font-display)] text-3xl font-bold tracking-tight text-[var(--text)] sm:text-4xl">
+              Complete Support Across Your Revenue Cycle
+            </h2>
+            <p className="mt-6 text-[15px] leading-8 text-[var(--text-muted)] sm:text-base sm:leading-8">
+              Partnering with InterPulse Global gives your practice structured
+              support across key stages of the billing and revenue cycle. Our
+              team helps organize billing activities, monitor outstanding
+              accounts, and provide greater visibility into financial
+              performance based on your selected services.
+            </p>
+          </div>
+
+          <ul className="mt-10 grid gap-4 lg:grid-cols-3">
+            {completeSupport.map((item) => (
+              <li
+                key={item.title}
+                className="border border-[var(--border)] bg-[var(--surface)] px-5 py-5"
+              >
+                <div className="flex items-start gap-3">
+                  <CheckIcon />
+                  <div>
+                    <h3 className="font-[family-name:var(--font-display)] text-base font-bold text-[var(--text)]">
+                      {item.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-7 text-[var(--text-muted)]">
+                      {item.body}
+                    </p>
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
       {/* Advantage */}
       <section className="bg-[var(--surface)] px-4 py-16 sm:px-6 sm:py-20 lg:py-24">
         <div className="mx-auto w-full max-w-[1200px]">
@@ -503,8 +644,8 @@ export default function RevenueCycleManagementPage() {
         </div>
       </section>
 
-      {/* EMR + HIPAA */}
-      <section className="border-y border-[var(--border)] bg-[var(--surface-elevated)] px-4 py-16 sm:px-6 sm:py-20">
+      {/* EHR / PM / Clearinghouse */}
+      <section className="border-y border-[var(--border)] bg-[var(--surface-elevated)] px-4 py-16 sm:px-6 sm:py-20 lg:py-24">
         <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
           <div className="mb-6 inline-flex items-center gap-2 border border-[#FF6B1A]/35 bg-[#FF6B1A]/10 px-3 py-1.5">
             <svg
@@ -523,22 +664,20 @@ export default function RevenueCycleManagementPage() {
             </span>
           </div>
           <h2 className="font-[family-name:var(--font-display)] text-3xl font-bold tracking-tight text-[var(--text)] sm:text-4xl">
-            Seamless EMR/EHR Support
+            EHR, Practice Management &amp; Clearinghouse Integration
           </h2>
-          <p className="mt-6 text-[15px] leading-8 text-[var(--text-muted)] sm:text-base">
-            At{" "}
-            <strong className="font-semibold text-[var(--text)]">
-              InterPulse Global
-            </strong>
-            , billing experts specialize in{" "}
-            <strong className="font-semibold text-[var(--text)]">
-              EMR/EHR support
-            </strong>{" "}
-            for a smoother revenue cycle. We work across major systems to help
-            providers{" "}
-            <strong className="font-semibold text-[var(--text)]">
-              streamline workflows, reduce denials, and maximize reimbursements.
-            </strong>
+          <p className="mt-6 text-[15px] leading-8 text-[var(--text-muted)] sm:text-base sm:leading-8">
+            InterPulse Global works with compatible EHR, practice management,
+            clearinghouse, and billing platforms to support various revenue cycle
+            functions. Depending on platform capabilities and service scope, this
+            may include eligibility information, charge entry, claim submission,
+            ERA/EOB posting, denial work queues, accounts receivable follow-up,
+            and financial reporting.
+          </p>
+          <p className="mt-5 text-[15px] leading-8 text-[var(--text-muted)] sm:text-base sm:leading-8">
+            Access, integrations, and available functionality may differ
+            depending on the systems used by each practice and the services
+            included in the engagement.
           </p>
         </div>
       </section>

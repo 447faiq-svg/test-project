@@ -1,30 +1,39 @@
 const services = [
-  { label: "AI Agents", href: "/#solutions", comingSoon: true },
+  { label: "AI Agents", href: "/services/ai-agents", comingSoon: true },
   { label: "Medical Billing Services", href: "/services/medical-billing" },
   { label: "Medical Billing and Coding", href: "/services/medical-billing-coding" },
+  { label: "Laboratory Billing Services", href: "/services/laboratory-billing" },
+  { label: "Medical Credentialing Services", href: "/services/medical-credentialing" },
+  { label: "MIPS Reporting", href: "/services/mips-reporting" },
   { label: "Revenue Cycle Management", href: "/services/revenue-cycle-management" },
   { label: "Medical Billing Audit", href: "/services/medical-billing-audit" },
 ];
 
 const specialities = [
-  { label: "Cardiology", href: "/specialties" },
-  { label: "Dentistry", href: "/specialties" },
-  { label: "Orthopedics", href: "/specialties" },
-  { label: "Pediatrics", href: "/specialties" },
-  { label: "Obstetrics & Gynaecology", href: "/specialties" },
+  { label: "Cardiology", href: "/specialties/cardiology" },
+  { label: "Dentistry", href: "/specialties/dentistry" },
+  { label: "Orthopedics", href: "/specialties/orthopedics" },
+  { label: "Pediatrics", href: "/specialties/pediatrics" },
+  { label: "Obstetrics & Gynaecology", href: "/specialties/obstetrics-gynaecology" },
 ];
 
 const contacts = [
   {
-    title: "California",
+    title: "Phone",
     detail: "+1 (662) 664-7181",
     href: "tel:+16626647181",
     icon: "phone" as const,
   },
   {
-    title: "Dr. Ayesha Khan",
-    detail: "12-C Gulberg III, Lahore, Punjab, Pakistan",
-    href: "/contact",
+    title: "Fax",
+    detail: "+1 (803) 398-4046",
+    href: "fax:+18033984046",
+    icon: "phone" as const,
+  },
+  {
+    title: "Kalispell, Montana",
+    detail: "1001 S Main St Ste 600, Kalispell, Montana, United States",
+    href: "/locations",
     icon: "pin" as const,
   },
 ];
@@ -67,6 +76,9 @@ export default function Footer() {
           {/* About us */}
           <div>
             <h3 className="text-base font-semibold">About us</h3>
+            <p className="mt-2 text-[13px] font-bold tracking-[0.12em] text-[#FF9A55] uppercase">
+              Driving Digital Excellence
+            </p>
             <p className="mt-4 text-[13px] leading-7 text-white/80 sm:text-sm sm:leading-7">
               At{" "}
               <strong className="font-semibold text-white">
@@ -159,15 +171,26 @@ export default function Footer() {
           <p className="font-[family-name:var(--font-display)] text-lg font-bold tracking-tight">
             InterPulse <span className="text-[#FF9A55]">Global</span>
           </p>
-          <p className="mt-2 text-xs text-white/65">
+          <p className="mt-2 font-[family-name:var(--font-display)] text-[13px] font-bold tracking-[0.12em] text-[#FF9A55] uppercase">
+            Driving Digital Excellence
+          </p>
+          <p className="mt-3 text-xs text-white/65">
             © {new Date().getFullYear()} InterPulse Global. All Rights Reserved.
           </p>
-          <a
-            href="#"
-            className="mt-2 inline-block text-xs font-medium text-[#FF9A55] transition hover:text-white"
-          >
-            Privacy Policy
-          </a>
+          <div className="mt-2 flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
+            <a
+              href="/privacy"
+              className="text-xs font-medium text-[#FF9A55] transition hover:text-white"
+            >
+              Privacy Policy
+            </a>
+            <a
+              href="/terms"
+              className="text-xs font-medium text-[#FF9A55] transition hover:text-white"
+            >
+              Terms &amp; Conditions
+            </a>
+          </div>
         </div>
       </div>
     </footer>

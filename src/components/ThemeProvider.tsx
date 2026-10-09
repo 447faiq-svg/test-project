@@ -22,7 +22,7 @@ const ThemeContext = createContext<ThemeContextValue | null>(null);
 
 const STORAGE_KEY = "interpulse-theme";
 
-let storeTheme: Theme = "dark";
+let storeTheme: Theme = "light";
 const listeners = new Set<() => void>();
 
 function emit() {
@@ -39,7 +39,7 @@ function getSnapshot() {
 }
 
 function getServerSnapshot(): Theme {
-  return "dark";
+  return "light";
 }
 
 function applyTheme(theme: Theme) {
@@ -53,11 +53,11 @@ function readPreferredTheme(): Theme {
   try {
     const stored = window.localStorage.getItem(STORAGE_KEY);
     if (stored === "light" || stored === "dark") return stored;
-    return window.matchMedia("(prefers-color-scheme: light)").matches
-      ? "light"
-      : "dark";
+    return window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
   } catch {
-    return "dark";
+    return "light";
   }
 }
 

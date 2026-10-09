@@ -4,6 +4,7 @@ const services = [
     description:
       "Intelligent workflows that accelerate prior authorizations, flag denial risk early, and keep your revenue cycle moving without constant manual oversight.",
     comingSoon: true,
+    href: "/services/ai-agents",
   },
   {
     title: "Medical Billing Services",
@@ -15,11 +16,13 @@ const services = [
     title: "Laboratory Billing Services",
     description:
       "Specialty lab billing built to capture specimen complexity, payer nuances, and compliance requirements while protecting test-level reimbursement.",
+    href: "/services/laboratory-billing",
   },
   {
     title: "Medical Credentialing Services",
     description:
       "Provider enrollment and payer-panel setup handled with careful follow-through, so clinicians can practice without enrollment bottlenecks.",
+    href: "/services/medical-credentialing",
   },
   {
     title: "Medical Billing & Coding Services",
@@ -31,6 +34,7 @@ const services = [
     title: "MIPS Reporting",
     description:
       "Accurate MIPS support that helps eligible Medicare providers protect reimbursement and document quality performance with confidence.",
+    href: "/services/mips-reporting",
   },
   {
     title: "Revenue Cycle Management",
@@ -79,16 +83,12 @@ export default function Services() {
             >
               <div className="flex items-start justify-between gap-3">
                 <h3 className="font-[family-name:var(--font-display)] text-lg font-bold leading-snug text-[var(--text)] sm:text-[1.15rem]">
-                  {"href" in service && service.href ? (
-                    <a
-                      href={service.href}
-                      className="transition hover:text-[#FF6B1A]"
-                    >
-                      {service.title}
-                    </a>
-                  ) : (
-                    service.title
-                  )}
+                  <a
+                    href={service.href}
+                    className="transition hover:text-[#FF6B1A]"
+                  >
+                    {service.title}
+                  </a>
                 </h3>
                 {service.comingSoon && (
                   <span className="shrink-0 bg-[#FF6B1A]/15 px-2 py-1 text-[10px] font-bold tracking-[0.06em] text-[#FF6B1A] uppercase">
@@ -100,14 +100,12 @@ export default function Services() {
               <p className="mt-4 flex-1 text-sm leading-6 text-[var(--text-muted)]">
                 {service.description}
               </p>
-              {"href" in service && service.href ? (
-                <a
-                  href={service.href}
-                  className="mt-6 inline-flex text-xs font-semibold tracking-[0.06em] text-[#FF6B1A] uppercase transition hover:text-[#E65200]"
-                >
-                  Learn More →
-                </a>
-              ) : null}
+              <a
+                href={service.href}
+                className="mt-6 inline-flex text-xs font-semibold tracking-[0.06em] text-[#FF6B1A] uppercase transition hover:text-[#E65200]"
+              >
+                Learn More →
+              </a>
             </article>
           ))}
         </div>

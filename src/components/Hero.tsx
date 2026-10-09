@@ -19,8 +19,11 @@ export default function Hero() {
           <p className="font-[family-name:var(--font-display)] text-[13px] font-semibold tracking-[0.22em] text-[#FF6B1A] uppercase">
             InterPulse Global
           </p>
+          <p className="mt-3 font-[family-name:var(--font-display)] text-[13px] font-bold tracking-[0.12em] text-[#FF6B1A] uppercase">
+            Driving Digital Excellence
+          </p>
 
-          <h1 className="mt-4 font-[family-name:var(--font-display)] text-[2.2rem] leading-[1.08] font-bold tracking-[-0.03em] text-[var(--text)] sm:text-5xl lg:text-[3.25rem]">
+          <h1 className="mt-5 font-[family-name:var(--font-display)] text-[2.2rem] leading-[1.08] font-bold tracking-[-0.03em] text-[var(--text)] sm:text-5xl lg:text-[3.25rem]">
             Global Revenue Intelligence for Modern Healthcare Practices.
           </h1>
 
@@ -33,7 +36,7 @@ export default function Hero() {
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <a
               href="#consult"
-              className="inline-flex h-12 items-center justify-center bg-[#FF6B1A] px-7 text-[12px] font-bold tracking-[0.08em] text-white uppercase transition hover:bg-[#E65200]"
+              className="inline-flex h-12 items-center justify-center rounded-md bg-[#FF6B1A] px-7 text-[12px] font-bold tracking-[0.08em] text-white uppercase transition hover:bg-[#E65200]"
             >
               Get Consultation
             </a>
@@ -41,7 +44,7 @@ export default function Hero() {
               href="#solutions"
               className="inline-flex h-12 items-center justify-center border border-[var(--border-strong)] bg-transparent px-6 text-[12px] font-semibold tracking-[0.06em] text-[var(--text)] uppercase transition hover:border-[#FF6B1A]/50 hover:text-[#FF6B1A]"
             >
-              View Services
+              Learn More
             </a>
           </div>
         </div>

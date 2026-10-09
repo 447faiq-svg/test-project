@@ -1,21 +1,25 @@
 import BlogSection from "@/components/BlogSection";
 import CompanyRecords from "@/components/CompanyRecords";
+import ConsultBanner from "@/components/ConsultBanner";
 import ConsultForm from "@/components/ConsultForm";
 import EmrEhr from "@/components/EmrEhr";
 import Hero from "@/components/Hero";
 import Reviews from "@/components/Reviews";
 import Services from "@/components/Services";
 import Specialties from "@/components/Specialties";
+import SpecialtyBillingWhy from "@/components/SpecialtyBillingWhy";
 import TrustStats from "@/components/TrustStats";
 
 export default function Home() {
   return (
     <main className="flex flex-1 flex-col">
       <Hero />
+      <ConsultBanner />
       <ConsultForm />
       <Services />
       <TrustStats />
       <Specialties />
+      <SpecialtyBillingWhy />
       <EmrEhr />
       <CompanyRecords />
       <Reviews />

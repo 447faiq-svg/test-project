@@ -39,10 +39,9 @@ export default function BlogSection() {
         <div className="mt-10 text-center">
           <Link
             href="/blogs"
-            className="inline-flex items-center gap-2 bg-[#FF6B1A] px-6 py-3 text-[12px] font-bold tracking-[0.08em] text-white uppercase transition hover:bg-[#E65200]"
+            className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.06em] text-[#FF6B1A] uppercase transition hover:text-[#E65200]"
           >
-            View All Blogs
-            <span aria-hidden>→</span>
+            Learn More →
           </Link>
         </div>
       </div>
