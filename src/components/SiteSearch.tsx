@@ -23,6 +23,16 @@ const staticPages: SearchItem[] = [
   { label: "Privacy Policy", href: "/privacy", group: "Legal" },
   { label: "Terms & Conditions", href: "/terms", group: "Legal" },
   {
+    label: "AI Agents",
+    href: "/services/ai-agents",
+    group: "Services",
+  },
+  {
+    label: "AI-Powered Medical Billing",
+    href: "/services/ai-agents",
+    group: "Services",
+  },
+  {
     label: "Medical Billing Services",
     href: "/services/medical-billing",
     group: "Services",
@@ -30,6 +40,21 @@ const staticPages: SearchItem[] = [
   {
     label: "Medical Billing & Coding",
     href: "/services/medical-billing-coding",
+    group: "Services",
+  },
+  {
+    label: "Laboratory Billing Services",
+    href: "/services/laboratory-billing",
+    group: "Services",
+  },
+  {
+    label: "Medical Credentialing Services",
+    href: "/services/medical-credentialing",
+    group: "Services",
+  },
+  {
+    label: "MIPS Reporting",
+    href: "/services/mips-reporting",
     group: "Services",
   },
   {

@@ -7,6 +7,7 @@ import Hero from "@/components/Hero";
 import Reviews from "@/components/Reviews";
 import Services from "@/components/Services";
 import Specialties from "@/components/Specialties";
+import SpecialtyBillingWhy from "@/components/SpecialtyBillingWhy";
 import TrustStats from "@/components/TrustStats";
 
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
       <Services />
       <TrustStats />
       <Specialties />
+      <SpecialtyBillingWhy />
       <EmrEhr />
       <CompanyRecords />
       <Reviews />

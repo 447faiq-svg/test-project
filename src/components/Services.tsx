@@ -4,7 +4,7 @@ const services = [
     description:
       "Intelligent workflows that accelerate prior authorizations, flag denial risk early, and keep your revenue cycle moving without constant manual oversight.",
     comingSoon: true,
-    href: "/#consult",
+    href: "/services/ai-agents",
   },
   {
     title: "Medical Billing Services",
@@ -16,13 +16,13 @@ const services = [
     title: "Laboratory Billing Services",
     description:
       "Specialty lab billing built to capture specimen complexity, payer nuances, and compliance requirements while protecting test-level reimbursement.",
-    href: "/#consult",
+    href: "/services/laboratory-billing",
   },
   {
     title: "Medical Credentialing Services",
     description:
       "Provider enrollment and payer-panel setup handled with careful follow-through, so clinicians can practice without enrollment bottlenecks.",
-    href: "/#consult",
+    href: "/services/medical-credentialing",
   },
   {
     title: "Medical Billing & Coding Services",
@@ -34,7 +34,7 @@ const services = [
     title: "MIPS Reporting",
     description:
       "Accurate MIPS support that helps eligible Medicare providers protect reimbursement and document quality performance with confidence.",
-    href: "/#consult",
+    href: "/services/mips-reporting",
   },
   {
     title: "Revenue Cycle Management",

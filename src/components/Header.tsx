@@ -1,17 +1,27 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import SiteSearch from "@/components/SiteSearch";
 import ThemeToggle from "@/components/ThemeToggle";
 
 const servicesDropdown = [
-  { label: "AI Agents", href: "/#solutions", comingSoon: true },
+  { label: "AI Agents", href: "/services/ai-agents", comingSoon: true },
   { label: "Medical Billing Services", href: "/services/medical-billing" },
   {
     label: "Medical Billing and Coding Services",
     href: "/services/medical-billing-coding",
   },
+  {
+    label: "Laboratory Billing Services",
+    href: "/services/laboratory-billing",
+  },
+  {
+    label: "Medical Credentialing Services",
+    href: "/services/medical-credentialing",
+  },
+  { label: "MIPS Reporting", href: "/services/mips-reporting" },
   { label: "Revenue Cycle Management", href: "/services/revenue-cycle-management" },
   { label: "Medical Billing Audit", href: "/services/medical-billing-audit" },
 ];
@@ -93,63 +103,16 @@ export default function Header() {
         <Link
           href="/"
           aria-label="InterPulse Global"
-          className="flex min-w-0 shrink-0 items-center gap-2.5 sm:gap-3"
+          className="flex min-w-0 shrink-0 items-center"
         >
-          <svg
-            width="40"
-            height="40"
-            viewBox="0 0 64 64"
-            fill="none"
-            aria-hidden="true"
-            className="h-9 w-9 shrink-0 sm:h-10 sm:w-10"
-          >
-            <path
-              d="M18 34c0-10 8-18 18-18"
-              stroke="#00407A"
-              strokeWidth="5"
-              strokeLinecap="round"
-            />
-            <path
-              d="M46 30c0 10-8 18-18 18"
-              stroke="#F37021"
-              strokeWidth="5"
-              strokeLinecap="round"
-            />
-            <path
-              d="M22 40A16 16 0 0 1 18 30"
-              stroke="#2563EB"
-              strokeWidth="5"
-              strokeLinecap="round"
-            />
-            <path
-              d="M42 24A16 16 0 0 1 46 34"
-              stroke="#FB923C"
-              strokeWidth="5"
-              strokeLinecap="round"
-            />
-            <path
-              d="M14 33h12l3-7 4 14 3-7h8l6-4"
-              stroke="#F37021"
-              strokeWidth="3.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <path
-              d="M48 29l8-5-2 9"
-              stroke="#F37021"
-              strokeWidth="3.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-          <span className="leading-tight">
-            <span className="block text-base font-bold tracking-tight text-[var(--text)] sm:text-[17px]">
-              InterPulse
-            </span>
-            <span className="block text-[10px] font-medium tracking-[0.2em] text-[var(--text-muted)] uppercase sm:text-[11px]">
-              Global
-            </span>
-          </span>
+          <Image
+            src="/interpulse-logo-nav.png"
+            alt="InterPulse Global"
+            width={168}
+            height={56}
+            priority
+            className="h-9 w-auto object-contain object-left sm:h-10 lg:h-11"
+          />
         </Link>
 
         <nav

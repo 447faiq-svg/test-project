@@ -1,7 +1,10 @@
 const services = [
-  { label: "AI Agents", href: "/#solutions", comingSoon: true },
+  { label: "AI Agents", href: "/services/ai-agents", comingSoon: true },
   { label: "Medical Billing Services", href: "/services/medical-billing" },
   { label: "Medical Billing and Coding", href: "/services/medical-billing-coding" },
+  { label: "Laboratory Billing Services", href: "/services/laboratory-billing" },
+  { label: "Medical Credentialing Services", href: "/services/medical-credentialing" },
+  { label: "MIPS Reporting", href: "/services/mips-reporting" },
   { label: "Revenue Cycle Management", href: "/services/revenue-cycle-management" },
   { label: "Medical Billing Audit", href: "/services/medical-billing-audit" },
 ];
@@ -16,15 +19,21 @@ const specialities = [
 
 const contacts = [
   {
-    title: "California",
+    title: "Phone",
     detail: "+1 (662) 664-7181",
     href: "tel:+16626647181",
     icon: "phone" as const,
   },
   {
-    title: "Dr. Michael Torres",
-    detail: "2450 Mission Street, Suite 400, San Francisco, CA 94110, USA",
-    href: "/contact",
+    title: "Fax",
+    detail: "+1 (803) 398-4046",
+    href: "fax:+18033984046",
+    icon: "phone" as const,
+  },
+  {
+    title: "Kalispell, Montana",
+    detail: "1001 S Main St Ste 600, Kalispell, Montana, United States",
+    href: "/locations",
     icon: "pin" as const,
   },
 ];

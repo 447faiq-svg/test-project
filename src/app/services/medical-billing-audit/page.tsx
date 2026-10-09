@@ -27,6 +27,29 @@ const auditScope = [
   "Claims with no payer response",
 ];
 
+const auditOnboarding = [
+  {
+    title: "Initial Welcome & Introduction",
+    body: "We start with a personalized welcome session to introduce our team, explain the engagement process, discuss your expectations, and outline how our medical billing audit specialists will support your practice.",
+  },
+  {
+    title: "Practice Information Questionnaire",
+    body: "You’ll receive a detailed onboarding questionnaire designed to collect essential information about your practice, billing operations, providers, systems, workflows, and specific audit requirements.",
+  },
+  {
+    title: "Comprehensive Onboarding Consultation",
+    body: "Our specialists conduct an in-depth onboarding meeting to review the information provided, understand your current billing processes, identify key areas of focus, and establish the objectives and scope of the audit.",
+  },
+  {
+    title: "Customized Audit Workflows & SOPs",
+    body: "Based on your practice’s operations and audit requirements, we develop customized workflows and Standard Operating Procedures (SOPs). These guidelines help establish a consistent approach to reviewing billing activities and reporting findings.",
+  },
+  {
+    title: "Audit Launch & Go-Live",
+    body: "Once the required information, access, workflows, and procedures are in place, we establish the official go-live date. At launch, InterPulse Global begins the agreed medical billing audit services and transitions into the established workflow with minimal disruption to your practice.",
+  },
+];
+
 function CheckIcon() {
   return (
     <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FF6B1A] text-white">
@@ -231,6 +254,69 @@ export default function MedicalBillingAuditPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Audit onboarding */}
+      <section className="bg-[var(--surface)] px-4 py-16 sm:px-6 sm:py-20 lg:py-24">
+        <div className="mx-auto w-full max-w-[1100px]">
+          <div className="mx-auto max-w-3xl text-center">
+            <h2 className="font-[family-name:var(--font-display)] text-3xl font-bold tracking-tight text-[var(--text)] sm:text-4xl">
+              How InterPulse Global Starts Your Medical Billing Audit Engagement
+            </h2>
+            <p className="mt-6 text-[15px] leading-8 text-[var(--text-muted)] sm:text-base sm:leading-8">
+              At InterPulse Global, we follow a structured onboarding process to
+              understand your practice, establish the appropriate audit
+              framework, and ensure our team is prepared to begin reviewing your
+              billing operations efficiently.
+            </p>
+          </div>
+
+          <ol className="mt-10 grid gap-4">
+            {auditOnboarding.map((step, index) => (
+              <li
+                key={step.title}
+                className="border border-[var(--border)] bg-[var(--surface-elevated)] px-5 py-5 sm:px-6"
+              >
+                <div className="flex items-start gap-4">
+                  <span className="inline-flex h-8 w-8 shrink-0 items-center justify-center bg-[#FF6B1A] text-sm font-bold text-white">
+                    {index + 1}
+                  </span>
+                  <div>
+                    <h3 className="font-[family-name:var(--font-display)] text-lg font-bold text-[var(--text)]">
+                      {step.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-7 text-[var(--text-muted)] sm:text-[15px]">
+                      {step.body}
+                    </p>
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* Specialty billing */}
+      <section className="border-t border-[var(--border)] bg-[var(--surface-elevated)] px-4 py-16 sm:px-6 sm:py-20 lg:py-24">
+        <div className="mx-auto max-w-3xl text-center">
+          <h2 className="font-[family-name:var(--font-display)] text-3xl font-bold tracking-tight text-[var(--text)] sm:text-4xl">
+            Medical Billing Services by Specialty
+          </h2>
+          <p className="mt-6 text-[15px] leading-8 text-[var(--text-muted)] sm:text-base sm:leading-8">
+            Every healthcare specialty comes with its own coding requirements,
+            documentation standards, payer policies, authorization procedures,
+            and reimbursement challenges. Our specialty-focused medical billing
+            services help healthcare providers simplify their revenue cycle,
+            reduce claim denials, improve collections, and spend more time
+            focused on patient care.
+          </p>
+          <a
+            href="/specialties"
+            className="mt-8 inline-flex h-12 items-center justify-center bg-[#FF6B1A] px-7 text-[12px] font-bold tracking-[0.08em] text-white uppercase transition hover:bg-[#E65200]"
+          >
+            Explore Specialties
+          </a>
         </div>
       </section>
 
