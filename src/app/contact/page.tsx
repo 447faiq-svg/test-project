@@ -16,8 +16,13 @@ const contactDetails = [
   },
   {
     label: "Phone",
-    value: "+1 (662) 664-7181",
-    href: "tel:+16626647181",
+    value: "+1 (406) 505-8012",
+    href: "tel:+14065058012",
+  },
+  {
+    label: "Email",
+    value: "contact@interpulseglobal.com",
+    href: "mailto:contact@interpulseglobal.com",
   },
   {
     label: "Fax",
@@ -86,7 +91,7 @@ export default function ContactPage() {
               Our Office
             </h2>
           </div>
-          <ul className="mt-10 grid gap-4 sm:grid-cols-3">
+          <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {contactDetails.map((item) => (
               <li
                 key={item.label}

@@ -20,9 +20,15 @@ const specialities = [
 const contacts = [
   {
     title: "Phone",
-    detail: "+1 (662) 664-7181",
-    href: "tel:+16626647181",
+    detail: "+1 (406) 505-8012",
+    href: "tel:+14065058012",
     icon: "phone" as const,
+  },
+  {
+    title: "Email",
+    detail: "contact@interpulseglobal.com",
+    href: "mailto:contact@interpulseglobal.com",
+    icon: "email" as const,
   },
   {
     title: "Fax",
@@ -38,10 +44,36 @@ const contacts = [
   },
 ];
 
+const socialLinks = [
+  {
+    label: "Facebook",
+    href: "https://www.facebook.com/share/1FWTh6tjHy/?mibextid=wwXIfr",
+    icon: "facebook" as const,
+  },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/interpulseglobal",
+    icon: "instagram" as const,
+  },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/company/interpulse-global/",
+    icon: "linkedin" as const,
+  },
+];
+
 function PhoneIcon() {
   return (
     <svg viewBox="0 0 24 24" className="mt-0.5 h-4 w-4 shrink-0" fill="currentColor" aria-hidden>
       <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.2 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1L6.6 10.8z" />
+    </svg>
+  );
+}
+
+function EmailIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="mt-0.5 h-4 w-4 shrink-0" fill="currentColor" aria-hidden>
+      <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5L4 8V6l8 5 8-5v2z" />
     </svg>
   );
 }
@@ -60,6 +92,72 @@ function ChevronIcon() {
       <path d="m9 6 6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
+}
+
+function FacebookIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-8 w-8" aria-hidden>
+      <circle cx="12" cy="12" r="12" fill="#1877F2" />
+      <path
+        fill="#FFFFFF"
+        d="M15.1 12.5h-2V20h-2.8v-7.5H8.7V9.9h1.6V8.4c0-1.6.8-4.1 4.1-4.1h2.4v2.6h-1.7c-.3 0-.7.1-.7.8v2.2h2.4l-.4 2.6z"
+      />
+    </svg>
+  );
+}
+
+function InstagramIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-8 w-8" aria-hidden>
+      <defs>
+        <linearGradient id="ig-bg" x1="0%" y1="100%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor="#f09433" />
+          <stop offset="25%" stopColor="#e6683c" />
+          <stop offset="50%" stopColor="#dc2743" />
+          <stop offset="75%" stopColor="#cc2366" />
+          <stop offset="100%" stopColor="#bc1888" />
+        </linearGradient>
+      </defs>
+      <rect width="24" height="24" rx="6.5" fill="url(#ig-bg)" />
+      <rect
+        x="5.2"
+        y="5.2"
+        width="13.6"
+        height="13.6"
+        rx="4.2"
+        fill="none"
+        stroke="#FFFFFF"
+        strokeWidth="1.7"
+      />
+      <circle
+        cx="12"
+        cy="12"
+        r="3.35"
+        fill="none"
+        stroke="#FFFFFF"
+        strokeWidth="1.7"
+      />
+      <circle cx="16.55" cy="7.55" r="1.05" fill="#FFFFFF" />
+    </svg>
+  );
+}
+
+function LinkedInIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-8 w-8" aria-hidden>
+      <rect width="24" height="24" rx="4" fill="#0A66C2" />
+      <path
+        fill="#FFFFFF"
+        d="M7.2 9.4H4.8V19h2.4V9.4zM6 4.5a1.4 1.4 0 1 0 0 2.8A1.4 1.4 0 0 0 6 4.5zM19.2 12.8c0-2.7-1.4-4-3.4-4-1.6 0-2.3.9-2.7 1.5V9.4H11c0 .7 0 9.6 0 9.6h2.4v-5.4c0-.3 0-.6.1-.8.3-.6.9-1.3 1.9-1.3 1.3 0 1.8 1 1.8 2.4V19h2.4v-6.2z"
+      />
+    </svg>
+  );
+}
+
+function SocialIcon({ name }: { name: (typeof socialLinks)[number]["icon"] }) {
+  if (name === "facebook") return <FacebookIcon />;
+  if (name === "instagram") return <InstagramIcon />;
+  return <LinkedInIcon />;
 }
 
 export default function Footer() {
@@ -92,6 +190,20 @@ export default function Footer() {
               providers by ensuring accurate coding, timely claim submission,
               and efficient follow-up.
             </p>
+            <div className="mt-6 flex items-center gap-4">
+              {socialLinks.map((item) => (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={item.label}
+                  className="inline-flex h-8 w-8 items-center justify-center overflow-hidden rounded-[6px] transition hover:scale-105 hover:opacity-90"
+                >
+                  <SocialIcon name={item.icon} />
+                </a>
+              ))}
+            </div>
           </div>
 
           {/* Our Services */}
@@ -150,7 +262,13 @@ export default function Footer() {
               {contacts.map((item) => (
                 <li key={item.title} className="flex gap-3">
                   <span className="text-[#FF9A55]">
-                    {item.icon === "phone" ? <PhoneIcon /> : <PinIcon />}
+                    {item.icon === "phone" ? (
+                      <PhoneIcon />
+                    ) : item.icon === "email" ? (
+                      <EmailIcon />
+                    ) : (
+                      <PinIcon />
+                    )}
                   </span>
                   <div>
                     <p className="text-sm font-bold text-white">{item.title}</p>
