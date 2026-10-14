@@ -2,6 +2,8 @@
 
 import { FormEvent, useState } from "react";
 
+const CONTACT_EMAIL = "contact@interpulseglobal.com";
+
 const fieldClass =
   "mt-1.5 w-full border border-[var(--border)] bg-[var(--input-bg)] px-3 py-3 text-sm text-[var(--text)] placeholder:text-[var(--text-muted)] outline-none transition focus:border-[#FF6B1A]/70 disabled:opacity-60";
 
@@ -17,32 +19,71 @@ export default function ConsultForm() {
 
     const form = e.currentTarget;
     const data = new FormData(form);
+    const firstName = String(data.get("firstName") ?? "").trim();
+    const lastName = String(data.get("lastName") ?? "").trim();
+    const phone = String(data.get("phone") ?? "").trim();
+    const email = String(data.get("email") ?? "").trim();
 
     try {
-      const response = await fetch("/api/consult", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          firstName: String(data.get("firstName") ?? ""),
-          lastName: String(data.get("lastName") ?? ""),
-          phone: String(data.get("phone") ?? ""),
-          email: String(data.get("email") ?? ""),
-        }),
-      });
+      const response = await fetch(
+        `https://formsubmit.co/ajax/${CONTACT_EMAIL}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            name: `${firstName} ${lastName}`,
+            firstName,
+            lastName,
+            phone,
+            email,
+            _replyto: email,
+            _subject: "New Get Consultation request - InterPulse Global",
+            _template: "table",
+            _captcha: "false",
+            message: [
+              "A new consultation request was submitted on InterPulse Global.",
+              "",
+              `Name: ${firstName} ${lastName}`,
+              `Phone: ${phone}`,
+              `Email: ${email}`,
+            ].join("\n"),
+          }),
+        },
+      );
 
       const result = (await response.json().catch(() => null)) as {
-        error?: string;
+        success?: string | boolean;
+        message?: string;
       } | null;
 
-      if (!response.ok) {
-        setError(result?.error || "Unable to send your request. Please try again.");
+      const isSuccess =
+        result?.success === true ||
+        result?.success === "true" ||
+        (response.ok && !result?.message?.toLowerCase().includes("make sure"));
+
+      if (!response.ok || !isSuccess) {
+        const activationNeeded = result?.message
+          ?.toLowerCase()
+          .includes("activate");
+
+        setError(
+          activationNeeded
+            ? "Please check contact@interpulseglobal.com and click the FormSubmit activation link, then try again."
+            : result?.message ||
+                "Unable to send your request right now. Please try again.",
+        );
         return;
       }
 
       setSubmitted(true);
       form.reset();
     } catch {
-      setError("Unable to send your request. Please check your connection and try again.");
+      setError(
+        "Unable to send your request. Please check your connection and try again.",
+      );
     } finally {
       setSending(false);
     }
