@@ -3,14 +3,49 @@
 import { FormEvent, useState } from "react";
 
 const fieldClass =
-  "mt-1.5 w-full border border-[var(--border)] bg-[var(--input-bg)] px-3 py-3 text-sm text-[var(--text)] placeholder:text-[var(--text-muted)] outline-none transition focus:border-[#FF6B1A]/70";
+  "mt-1.5 w-full border border-[var(--border)] bg-[var(--input-bg)] px-3 py-3 text-sm text-[var(--text)] placeholder:text-[var(--text-muted)] outline-none transition focus:border-[#FF6B1A]/70 disabled:opacity-60";
 
 export default function ConsultForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
 
-  function onSubmit(e: FormEvent<HTMLFormElement>) {
+  async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSubmitted(true);
+    setError("");
+    setSending(true);
+
+    const form = e.currentTarget;
+    const data = new FormData(form);
+
+    try {
+      const response = await fetch("/api/consult", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          firstName: String(data.get("firstName") ?? ""),
+          lastName: String(data.get("lastName") ?? ""),
+          phone: String(data.get("phone") ?? ""),
+          email: String(data.get("email") ?? ""),
+        }),
+      });
+
+      const result = (await response.json().catch(() => null)) as {
+        error?: string;
+      } | null;
+
+      if (!response.ok) {
+        setError(result?.error || "Unable to send your request. Please try again.");
+        return;
+      }
+
+      setSubmitted(true);
+      form.reset();
+    } catch {
+      setError("Unable to send your request. Please check your connection and try again.");
+    } finally {
+      setSending(false);
+    }
   }
 
   return (
@@ -54,6 +89,7 @@ export default function ConsultForm() {
                   name="firstName"
                   type="text"
                   placeholder="First name"
+                  disabled={sending}
                   className={`${fieldClass} pl-9`}
                 />
               </span>
@@ -70,6 +106,7 @@ export default function ConsultForm() {
                   name="lastName"
                   type="text"
                   placeholder="Last name"
+                  disabled={sending}
                   className={`${fieldClass} pl-9`}
                 />
               </span>
@@ -86,6 +123,7 @@ export default function ConsultForm() {
                   name="phone"
                   type="tel"
                   placeholder="Phone"
+                  disabled={sending}
                   className={`${fieldClass} pl-9`}
                 />
               </span>
@@ -102,6 +140,7 @@ export default function ConsultForm() {
                   name="email"
                   type="email"
                   placeholder="Email"
+                  disabled={sending}
                   className={`${fieldClass} pl-9`}
                 />
               </span>
@@ -109,10 +148,17 @@ export default function ConsultForm() {
 
             <button
               type="submit"
-              className="inline-flex h-[46px] w-full items-center justify-center bg-[#FF6B1A] px-6 text-[12px] font-bold tracking-[0.06em] whitespace-nowrap text-white uppercase transition hover:bg-[#E65200] sm:col-span-2 lg:col-span-1 lg:w-auto"
+              disabled={sending}
+              className="inline-flex h-[46px] w-full items-center justify-center bg-[#FF6B1A] px-6 text-[12px] font-bold tracking-[0.06em] whitespace-nowrap text-white uppercase transition hover:bg-[#E65200] disabled:cursor-not-allowed disabled:opacity-70 sm:col-span-2 lg:col-span-1 lg:w-auto"
             >
-              Get Consultation
+              {sending ? "Sending..." : "Get Consultation"}
             </button>
+
+            {error ? (
+              <p className="text-sm text-red-600 sm:col-span-2 lg:col-span-5">
+                {error}
+              </p>
+            ) : null}
           </form>
         )}
       </div>
