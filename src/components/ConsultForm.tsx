@@ -2,6 +2,8 @@
 
 import { FormEvent, useState } from "react";
 
+const WEB3FORMS_ACCESS_KEY = "54498212-f6a4-402c-8d9f-88da39f90fd3";
+
 const fieldClass =
   "mt-1.5 w-full border border-[var(--border)] bg-[var(--input-bg)] px-3 py-3 text-sm text-[var(--text)] placeholder:text-[var(--text-muted)] outline-none transition focus:border-[#FF6B1A]/70 disabled:opacity-60";
 
@@ -17,26 +19,45 @@ export default function ConsultForm() {
 
     const form = e.currentTarget;
     const data = new FormData(form);
+    const firstName = String(data.get("firstName") ?? "").trim();
+    const lastName = String(data.get("lastName") ?? "").trim();
+    const phone = String(data.get("phone") ?? "").trim();
+    const email = String(data.get("email") ?? "").trim();
 
     try {
-      const response = await fetch("/api/consult", {
+      const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
         body: JSON.stringify({
-          firstName: String(data.get("firstName") ?? ""),
-          lastName: String(data.get("lastName") ?? ""),
-          phone: String(data.get("phone") ?? ""),
-          email: String(data.get("email") ?? ""),
+          access_key: WEB3FORMS_ACCESS_KEY,
+          subject: "New Get Consultation request - InterPulse Global",
+          from_name: "InterPulse Global Website",
+          name: `${firstName} ${lastName}`,
+          email,
+          phone,
+          replyto: email,
+          message: [
+            "A new consultation request was submitted on InterPulse Global.",
+            "",
+            `Name: ${firstName} ${lastName}`,
+            `Phone: ${phone}`,
+            `Email: ${email}`,
+          ].join("\n"),
         }),
       });
 
       const result = (await response.json().catch(() => null)) as {
-        error?: string;
+        success?: boolean;
+        message?: string;
       } | null;
 
-      if (!response.ok) {
+      if (!response.ok || !result?.success) {
         setError(
-          result?.error || "Unable to send your request. Please try again.",
+          result?.message ||
+            "Unable to send your request. Please try again.",
         );
         return;
       }
