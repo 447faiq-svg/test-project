@@ -2,8 +2,6 @@
 
 import { FormEvent, useState } from "react";
 
-const CONTACT_EMAIL = "contact@interpulseglobal.com";
-
 const fieldClass =
   "mt-1.5 w-full border border-[var(--border)] bg-[var(--input-bg)] px-3 py-3 text-sm text-[var(--text)] placeholder:text-[var(--text-muted)] outline-none transition focus:border-[#FF6B1A]/70 disabled:opacity-60";
 
@@ -25,44 +23,21 @@ export default function ConsultForm() {
     const email = String(data.get("email") ?? "").trim();
 
     try {
-      // FormSubmit delivers to CONTACT_EMAIL. First submission sends an
-      // "Activate Form" email — after activation, leads land in the inbox.
-      const response = await fetch(
-        `https://formsubmit.co/ajax/${CONTACT_EMAIL}`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify({
-            _subject: "New Get Consultation request - InterPulse Global",
-            _template: "table",
-            _captcha: "false",
-            name: `${firstName} ${lastName}`,
-            email,
-            phone,
-            message: [
-              "A new consultation request was submitted on InterPulse Global.",
-              "",
-              `Name: ${firstName} ${lastName}`,
-              `Phone: ${phone}`,
-              `Email: ${email}`,
-            ].join("\n"),
-          }),
+      const response = await fetch("/api/consult", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
         },
-      );
+        body: JSON.stringify({ firstName, lastName, phone, email }),
+      });
 
       const result = (await response.json().catch(() => null)) as {
-        success?: string | boolean;
+        success?: boolean;
         message?: string;
       } | null;
 
-      const ok =
-        response.ok &&
-        (result?.success === true || result?.success === "true");
-
-      if (!ok) {
+      if (!response.ok || !result?.success) {
         setError(
           result?.message ||
             "Unable to send your request. Please try again.",
